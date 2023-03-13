@@ -1,0 +1,12 @@
+version: '3.7'
+services:
+  database:
+    image: "postgres"
+    ports: 
+      - "5432:5432"
+    env_file:
+      - database.env # configure postgres
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/10-init.sql
+volumes:
+  database-data:
